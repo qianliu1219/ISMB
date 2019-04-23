@@ -37,8 +37,8 @@ def rgb2gray(rgb):
 
 
 ###########################         read dataset1     #####################################
-img_path_Unet = '/home/qian/Desktop/projects/Organoid/ISMB/data/data_for_models_training/data_for_density_extraction_model/image'
-lab_path_Unet = '/home/qian/Desktop/projects/Organoid/ISMB/data/data_for_models_training/data_for_density_extraction_model/label'
+img_path_Unet = '/home/qian/Desktop/projects/Organoid/cell_couting/data/data_for_models_training/data_for_density_extraction_model/image'
+lab_path_Unet = '/home/qian/Desktop/projects/Organoid/cell_couting/data/data_for_models_training/data_for_density_extraction_model/label'
 
 #data_Unet
 data_Unet = []
@@ -87,8 +87,8 @@ val_counts_Unet = label_Unet[val_idx_Unet]
 
 
 ########################         read dataset2      ######################################
-img_path_FM = '/home/qian/Desktop/projects/Organoid/ISMB/data/data_for_models_training/data_for_foreground_extraction_model/image'
-lab_path_FM = '/home/qian/Desktop/projects/Organoid/ISMB/data/data_for_models_training/data_for_foreground_extraction_model/label'
+img_path_FM = '/home/qian/Desktop/projects/Organoid/cell_couting/data/data_for_models_training/data_for_foreground_extraction_model/image'
+lab_path_FM = '/home/qian/Desktop/projects/Organoid/cell_couting/data/data_for_models_training/data_for_foreground_extraction_model/label'
 
 
 #data_FM
@@ -178,9 +178,9 @@ wr.writerows([val_counts_all])
 
 #########################        real data      #######################################
 
-AKTP_path = '/home/qian/Desktop/projects/Organoid/ISMB/data/real_data/AKTP'
-AKTP_Nt5e_path = '/home/qian/Desktop/projects/Organoid/ISMB/data/real_data/AKTP_Nt5e'
-AKTP_P2rx7_path = '/home/qian/Desktop/projects/Organoid/ISMB/data/real_data/AKTP_P2rx7'
+AKTP_path = '/home/qian/Desktop/projects/Organoid/cell_couting/data/real_data/AKTP'
+AKTP_Nt5e_path = '/home/qian/Desktop/projects/Organoid/cell_couting/data/real_data/AKTP_Nt5e'
+AKTP_P2rx7_path = '/home/qian/Desktop/projects/Organoid/cell_couting/data/real_data/AKTP_P2rx7'
 
 AKTP, AKTP_Nt5e,AKTP_P2rx7 = [],[],[]
 

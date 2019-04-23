@@ -1,8 +1,15 @@
 rm(list = ls())
-setwd("~/Desktop/projects/Organoid/ISMB/code/cell_counting_v2-master")
+setwd("~/Desktop/projects/Organoid/cell_counting/code/cell_counting_v2-master")
 
 ############ performance on testing ###############
 
+Xie<-t(read.csv("Xie_predict.csv",header = F))
+Xie[,2]<-unlist(strsplit(Xie[,2],"]"))
+Xie[,2]<-substr(Xie[,2],2,9)
+Xie<-as.data.frame(Xie)
+colnames(Xie)<-c("label","DDCNN")
+Xie[,1]<-as.numeric(as.character(Xie$label))
+Xie[,2]<-as.numeric(as.character(Xie$DDCNN))
 
 
 DRDCNN<-t(read.csv("DRDCNN_predict.csv",header = F))
@@ -37,13 +44,18 @@ CRDCNN[,2]<-as.numeric(as.character(CRDCNN$ERDCNN))
 
 library(Metrics)
 
-rmse(as.numeric(DRDCNN[,2]), as.numeric(DRDCNN[,1]))
-mae(as.numeric(DRDCNN[,2]), as.numeric(DRDCNN[,1]))
-cor(as.numeric(DRDCNN[,2]), as.numeric(DRDCNN[,1]),method = "pearson")
+rmse(as.numeric(Xie[,2]), as.numeric(Xie[,1]))
+mae(as.numeric(Xie[,2]), as.numeric(Xie[,1]))
+cor(as.numeric(Xie[,2]), as.numeric(Xie[,1]),method = "pearson")
 
 rmse(as.numeric(FRDCNN[,2]), as.numeric(FRDCNN[,1]))
 mae(as.numeric(FRDCNN[,2]), as.numeric(FRDCNN[,1]))
 cor(as.numeric(FRDCNN[,2]), as.numeric(FRDCNN[,1]),method = "pearson")
+
+rmse(as.numeric(CRDCNN[,2]), as.numeric(CRDCNN[,1]))
+mae(as.numeric(CRDCNN[,2]), as.numeric(CRDCNN[,1]))
+cor(as.numeric(CRDCNN[,2]), as.numeric(CRDCNN[,1]),method = "pearson")
+
 
 rmse(as.numeric(CRDCNN[,2]), as.numeric(CRDCNN[,1]))
 mae(as.numeric(CRDCNN[,2]), as.numeric(CRDCNN[,1]))
